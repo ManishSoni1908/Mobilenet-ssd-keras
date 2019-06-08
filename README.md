@@ -118,7 +118,7 @@ Below are some prediction examples of the fully trained original MobileNet-SSD30
 
 ### Repository Content
 
-This repository provides Jupyter notebook tutorials that explain training, inference and evaluation, and there are a bunch of explanations in the subsequent sections that complement the notebooks.
+This repository provides python files that explain training, inference and evaluation.
 
 How to use a trained model for inference:
 * [`infer_mobilenet_ssd.py`](.inference/infer_mobilenet_ssd.py)
@@ -135,9 +135,9 @@ How to use the data generator:
 
 #### Training details
 
-The general training setup is layed out and explained in [`ssd7_training.ipynb`](ssd7_training.ipynb) and in [`ssd300_training.ipynb`](ssd300_training.ipynb). The setup and explanations are similar in both notebooks for the most part, so it doesn't matter which one you look at to understand the general training setup, but the parameters in [`ssd300_training.ipynb`](ssd300_training.ipynb) are preset to copy the setup of the original Caffe implementation for training on Pascal VOC, while the parameters in [`ssd7_training.ipynb`](ssd7_training.ipynb) are preset to train on the [Udacity traffic datasets](https://github.com/udacity/self-driving-car/tree/master/annotations).
+The general training setup is layed out and explained in [`train_mobilenet_ssd`](train_mobilenet_ssd.py).
 
-To train the original SSD300 model on Pascal VOC:
+To train the original MobileNet-SSD300 model on Pascal VOC:
 
 1. Download the datasets:
   ```c
@@ -145,12 +145,9 @@ To train the original SSD300 model on Pascal VOC:
   wget http://host.robots.ox.ac.uk/pascal/VOC/voc2007/VOCtrainval_06-Nov-2007.tar
   wget http://host.robots.ox.ac.uk/pascal/VOC/voc2007/VOCtest_06-Nov-2007.tar
   ```
-2. Download the weights for the convolutionalized VGG-16 or for one of the trained original models provided below.
-3. Set the file paths for the datasets and model weights accordingly in [`ssd300_training.ipynb`](ssd300_training.ipynb) and execute the cells.
+2. Download the weights for the convolutionalized MobileNet-V1 or for one of the trained original models provided below.
+3. Set the file paths for the datasets and model weights accordingly in [`train_mobilenet_ssd`](train_mobilenet_ssd.py) and execute it.
 
-The procedure for training SSD512 is the same of course. It is imperative that you load the pre-trained VGG-16 weights when attempting to train an SSD300 or SSD512 from scratch, otherwise the training will probably fail. Here is a summary of a full training of the SSD300 "07+12" model for comparison with your own training:
-
-* [SSD300 Pascal VOC "07+12" training summary](training_summaries/ssd300_pascal_07+12_training_summary.md)
 
 #### Encoding and decoding boxes
 
