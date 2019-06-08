@@ -135,7 +135,7 @@ How to use the data generator:
 
 #### Training details
 
-The general training setup is layed out and explained in [`train_mobilenet_ssd`](train_mobilenet_ssd.py).
+The general training setup is layed out and explained in [`train_mobilenet_ssd`](./training/train_mobilenet_ssd.py).
 
 To train the original MobileNet-SSD300 model on Pascal VOC:
 
@@ -146,7 +146,7 @@ To train the original MobileNet-SSD300 model on Pascal VOC:
   wget http://host.robots.ox.ac.uk/pascal/VOC/voc2007/VOCtest_06-Nov-2007.tar
   ```
 2. Download the weights for the convolutionalized MobileNet-V1 or for one of the trained original models provided below.
-3. Set the file paths for the datasets and model weights accordingly in [`train_mobilenet_ssd`](train_mobilenet_ssd.py) and execute it.
+3. Set the file paths for the datasets and model weights accordingly in [`train_mobilenet_ssd`](./training/train_mobilenet_ssd.py) and execute it.
 
 
 #### Encoding and decoding boxes
