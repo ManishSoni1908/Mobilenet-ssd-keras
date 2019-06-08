@@ -1,7 +1,7 @@
 # Mobilenet-ssd-keras
 
 ## SSD: A keras implementation of Mobilenet Single-Shot MultiBox Detector 
--
+
 ### Contents
 
 1. [Overview](#overview)
