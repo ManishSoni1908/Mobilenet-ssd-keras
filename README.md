@@ -8,7 +8,7 @@
 2. [Performance](#performance)
 3. [Examples](#examples)
 4. [Dependencies](#dependencies)
-5. [How to use it](#how-to-use-it)
+5. [Repository Content](#Repository-Content)
 6. [Download the convolutionalized VGG-16 weights](#download-the-convolutionalized-vgg-16-weights)
 7. [Download the original trained model weights](#download-the-original-trained-model-weights)
 8. [How to fine-tune one of the trained models on your own dataset](#how-to-fine-tune-one-of-the-trained-models-on-your-own-dataset)
@@ -100,19 +100,12 @@ The models achieve the following average number of frames per second (FPS) on Pa
 
 ### Examples
 
-Below are some prediction examples of the fully trained original SSD300 "07+12" model (i.e. trained on Pascal VOC2007 `trainval` and VOC2012 `trainval`). The predictions were made on Pascal VOC2007 `test`.
+Below are some prediction examples of the fully trained original MobileNet-SSD300 "07+12" model (i.e. trained on Pascal VOC2007 `trainval` and VOC2012 `trainval`). The predictions were made on Pascal VOC2007 `test`.
 
 | | |
 |---|---|
-| ![img01](./examples/trained_ssd300_pascalVOC2007_test_pred_05_no_gt.png) | ![img01](./examples/trained_ssd300_pascalVOC2007_test_pred_04_no_gt.png) |
-| ![img01](./examples/trained_ssd300_pascalVOC2007_test_pred_01_no_gt.png) | ![img01](./examples/trained_ssd300_pascalVOC2007_test_pred_02_no_gt.png) |
-
-Here are some prediction examples of an SSD7 (i.e. the small 7-layer version) partially trained on two road traffic datasets released by [Udacity](https://github.com/udacity/self-driving-car/tree/master/annotations) with roughly 20,000 images in total and 5 object categories (more info in [`ssd7_training.ipynb`](ssd7_training.ipynb)). The predictions you see below were made after 10,000 training steps at batch size 32. Admittedly, cars are comparatively easy objects to detect and I picked a few of the better examples, but it is nonetheless remarkable what such a small model can do after only 10,000 training iterations.
-
-| | |
-|---|---|
-| ![img01](./examples/ssd7_udacity_traffic_pred_01.png) | ![img01](./examples/ssd7_udacity_traffic_pred_02.png) |
-| ![img01](./examples/ssd7_udacity_traffic_pred_03.png) | ![img01](./examples/ssd7_udacity_traffic_pred_04.png) |
+| ![img01](./examples/000067.jpg) | ![img01](./examples/000067.jpg) |
+| ![img01](./examples/000542.jpg) | ![img01](./examples/004545.jpg) |
 
 ### Dependencies
 
@@ -123,7 +116,7 @@ Here are some prediction examples of an SSD7 (i.e. the small 7-layer version) pa
 * OpenCV
 
 
-### Repositories Content
+### Repository Content
 
 This repository provides Jupyter notebook tutorials that explain training, inference and evaluation, and there are a bunch of explanations in the subsequent sections that complement the notebooks.
 
