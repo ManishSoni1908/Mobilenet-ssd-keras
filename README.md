@@ -1,4 +1,4 @@
-# Mobilenet-ssd-keras
+# MobileNet-SSD300-Keras
 
 ## SSD: A keras implementation of Mobilenet Single-Shot MultiBox Detector 
 
@@ -9,12 +9,9 @@
 3. [Examples](#examples)
 4. [Dependencies](#dependencies)
 5. [Repository Content](#Repository-Content)
-6. [Download the convolutionalized VGG-16 weights](#download-the-convolutionalized-vgg-16-weights)
+6. [Download the convolutionalized MobileNet-V1 weights](#download-the-convolutionalized-MobileNet-V1-weights)
 7. [Download the original trained model weights](#download-the-original-trained-model-weights)
-8. [How to fine-tune one of the trained models on your own dataset](#how-to-fine-tune-one-of-the-trained-models-on-your-own-dataset)
-9. [ToDo](#todo)
-10. [Important notes](#important-notes)
-11. [Terminology](#terminology)
+8. [Terminology](#terminology)
 
 ### Overview
 
@@ -128,7 +125,7 @@ How to train a model:
 
 
 How to evaluate a trained model:
-* In general: [`evaluation_mobilenet_ssd.py`](./evaluation/evaluate_mobilenet_ssd.py)
+* [`evaluation_mobilenet_ssd.py`](./evaluation/evaluate_mobilenet_ssd.py)
 
 How to use the data generator:
 * ['ssd_batch_generator.py'](./misc/ssd_batch_generator.py)
@@ -149,25 +146,12 @@ To train the original MobileNet-SSD300 model on Pascal VOC:
 3. Set the file paths for the datasets and model weights accordingly in [`train_mobilenet_ssd`](./training/train_mobilenet_ssd.py) and execute it.
 
 
-#### Encoding and decoding boxes
 
-The [`ssd_encoder_decoder`](ssd_encoder_decoder) sub-package contains all functions and classes related to encoding and decoding boxes. Encoding boxes means converting ground truth labels into the target format that the loss function needs during training. It is this encoding process in which the matching of ground truth boxes to anchor boxes (the paper calls them default boxes and in the original C++ code they are called priors - all the same thing) happens. Decoding boxes means converting raw model output back to the input label format, which entails various conversion and filtering processes such as non-maximum suppression (NMS).
+### Download the convolutionalized MobileNet-V1 weights
 
-In order to train the model, you need to create an instance of `SSDInputEncoder` that needs to be passed to the data generator. The data generator does the rest, so you don't usually need to call any of `SSDInputEncoder`'s methods manually.
+In order to train an MobileNet-SSD300 from scratch, download the weights of the fully convolutionalized MobileNet-V1 model trained to convergence on ImageNet classification here:
 
-Models can be created in 'training' or 'inference' mode. In 'training' mode, the model outputs the raw prediction tensor that still needs to be post-processed with coordinate conversion, confidence thresholding, non-maximum suppression, etc. The functions `decode_detections()` and `decode_detections_fast()` are responsible for that. The former follows the original Caffe implementation, which entails performing NMS per object class, while the latter performs NMS globally across all object classes and is thus more efficient, but also behaves slightly differently. Read the documentation for details about both functions. If a model is created in 'inference' mode, its last layer is the `DecodeDetections` layer, which performs all the post-processing that `decode_detections()` does, but in TensorFlow. That means the output of the model is already the post-processed output. In order to be trainable, a model must be created in 'training' mode. The trained weights can then later be loaded into a model that was created in 'inference' mode.
-
-A note on the anchor box offset coordinates used internally by the model: This may or may not be obvious to you, but it is important to understand that it is not possible for the model to predict absolute coordinates for the predicted bounding boxes. In order to be able to predict absolute box coordinates, the convolutional layers responsible for localization would need to produce different output values for the same object instance at different locations within the input image. This isn't possible of course: For a given input to the filter of a convolutional layer, the filter will produce the same output regardless of the spatial position within the image because of the shared weights. This is the reason why the model predicts offsets to anchor boxes instead of absolute coordinates, and why during training, absolute ground truth coordinates are converted to anchor box offsets in the encoding process. The fact that the model predicts offsets to anchor box coordinates is in turn the reason why the model contains anchor box layers that do nothing but output the anchor box coordinates so that the model's output tensor can include those. If the model's output tensor did not contain the anchor box coordinates, the information to convert the predicted offsets back to absolute coordinates would be missing in the model output.
-
-#### Using a different base network architecture
-
-If you want to build a different base network architecture, you could use [`keras_ssd7.py`](models/keras_ssd7.py) as a template. It provides documentation and comments to help you turn it into a different base network. Put together the base network you want and add a predictor layer on top of each network layer from which you would like to make predictions. Create two predictor heads for each, one for localization, one for classification. Create an anchor box layer for each predictor layer and set the respective localization head's output as the input for the anchor box layer. The structure of all tensor reshaping and concatenation operations remains the same, you just have to make sure to include all of your predictor and anchor box layers of course.
-
-### Download the convolutionalized VGG-16 weights
-
-In order to train an SSD300 or SSD512 from scratch, download the weights of the fully convolutionalized VGG-16 model trained to convergence on ImageNet classification here:
-
-[`VGG_ILSVRC_16_layers_fc_reduced.h5`](https://drive.google.com/open?id=1sBmajn6vOE7qJ8GnxUJt4fGPuffVUZox).
+[`MobileNet-v1.h5`](https://drive.google.com/open?id=1sBmajn6vOE7qJ8GnxUJt4fGPuffVUZox).
 
 As with all other weights files below, this is a direct port of the corresponding `.caffemodel` file that is provided in the repository of the original Caffe implementation.
 
@@ -184,6 +168,7 @@ Here are the ported weights for all the original trained models. The filenames c
     * 07++12+COCO: [SSD300*](https://drive.google.com/open?id=1fyDDUcIOSjeiP08vl1WCndcFdtboFXua), [SSD512*](https://drive.google.com/open?id=1a-64b6y6xsQr5puUsHX_wxI1orQDercM)
 
 
+
 2. COCO models:
 
     * trainval35k: [SSD300*](https://drive.google.com/open?id=1vmEF7FUsWfHquXyCqO17UaXOPpRbwsdj), [SSD512*](https://drive.google.com/open?id=1IJWZKmjkcFMlvaz2gYukzFx4d6mH3py5)
@@ -193,11 +178,6 @@ Here are the ported weights for all the original trained models. The filenames c
 
     * trainval1: [SSD300*](https://drive.google.com/open?id=1VWkj1oQS2RUhyJXckx3OaDYs5fx2mMCq), [SSD500](https://drive.google.com/open?id=1LcBPsd9CJbuBw4KiSuE1o1fMA-Pz2Zvw)
 
-### How to fine-tune one of the trained models on your own dataset
-
-If you want to fine-tune one of the provided trained models on your own dataset, chances are your dataset doesn't have the same number of classes as the trained model. The following tutorial explains how to deal with this problem:
-
-[`weight_sampling_tutorial.ipynb`](weight_sampling_tutorial.ipynb)
 
 ### ToDo
 
