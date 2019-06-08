@@ -187,4 +187,4 @@ Currently in the works:
 * "Predictor layer": The "predictor layers" or "predictors" are all the last convolution layers of the network, i.e. all convolution layers that do not feed into any subsequent convolution layers.
 
 
-* Special Mention to Pierluigi Ferrari which has developed ssd keras code, it helps alot to do build this repository.
+# Special Mention to Pierluigi Ferrari which has developed ssd keras code, it helps alot to do build this repository.
