@@ -1,7 +1,7 @@
 # Mobilenet-ssd-keras
 
-## SSD: Single-Shot MultiBox Detector implementation in Keras
----
+## SSD: A keras implementation of Mobilenet Single-Shot MultiBox Detector 
+-
 ### Contents
 
 1. [Overview](#overview)
@@ -18,24 +18,18 @@
 
 ### Overview
 
-This is a Keras port of the SSD model architecture introduced by Wei Liu et al. in the paper [SSD: Single Shot MultiBox Detector](https://arxiv.org/abs/1512.02325).
+This is a Keras port of the  Mobilenet SSD model architecture introduced by Wei Liu et al. in the paper [SSD: Single Shot MultiBox Detector](https://arxiv.org/abs/1512.02325).
 
-Ports of the trained weights of all the original models are provided below. This implementation is accurate, meaning that both the ported weights and models trained from scratch produce the same mAP values as the respective models of the original Caffe implementation (see performance section below).
-
-The main goal of this project is to create an SSD implementation that is well documented for those who are interested in a low-level understanding of the model. The provided tutorials, documentation and detailed comments hopefully make it a bit easier to dig into the code and adapt or build upon the model than with most other implementations out there (Keras or otherwise) that provide little to no documentation and comments.
+Weights are ported from caffe implementation of MobileNet SSD. MAP comes out to be same if we train the model from scratch and the given this implies that implementation is correct.
 
 The repository currently provides the following network architectures:
-* SSD300: [`keras_ssd300.py`](models/keras_ssd300.py)
-* SSD512: [`keras_ssd512.py`](models/keras_ssd512.py)
-* SSD7: [`keras_ssd7.py`](models/keras_ssd7.py) - a smaller 7-layer version that can be trained from scratch relatively quickly even on a mid-tier GPU, yet is capable enough for less complex object detection tasks and testing. You're obviously not going to get state-of-the-art results with that one, but it's fast.
+* SSD300_mobilenet: [`ssd_mobilenet.py`](models/ssd_mobilenet.py)
+ Mobilebet-V1 is used as a backbone for feature extyraction. This Network has capibility to train faster and results in increment in fps while deployment.
 
-If you would like to use one of the provided trained models for transfer learning (i.e. fine-tune one of the trained models on your own dataset), there is a [Jupyter notebook tutorial](weight_sampling_tutorial.ipynb) that helps you sub-sample the trained weights so that they are compatible with your dataset, see further below.
-
-If you would like to build an SSD with your own base network architecture, you can use [`keras_ssd7.py`](models/keras_ssd7.py) as a template, it provides documentation and comments to help you.
 
 ### Performance
 
-Here are the mAP evaluation results of the ported weights and below that the evaluation results of a model trained from scratch using this implementation. All models were evaluated using the official Pascal VOC test server (for 2012 `test`) or the official Pascal VOC Matlab evaluation script (for 2007 `test`). In all cases the results match (or slightly surpass) those of the original Caffe models. Download links to all ported weights are available further below.
+Here are the mAP evaluation results of the ported weights and below that the evaluation results of a model trained from scratch using this implementation. All models were evaluated using the official Pascal VOC test server (for 2007 `test`). In all cases the results match those of the original Caffe models. Download links to all ported weights are available further below.
 
 <table width="70%">
   <tr>
@@ -45,7 +39,6 @@ Here are the mAP evaluation results of the ported weights and below that the eva
   <tr>
     <td>evaluated on</td>
     <td colspan=2 align=center>VOC2007 test</td>
-    <td align=center>VOC2012 test</td>
   </tr>
   <tr>
     <td>trained on<br>IoU rule</td>
@@ -55,15 +48,8 @@ Here are the mAP evaluation results of the ported weights and below that the eva
   </tr>
   <tr>
     <td><b>SSD300</td>
-    <td align=center><b>77.5</td>
-    <td align=center><b>81.2</td>
-    <td align=center><b>79.4</td>
-  </tr>
-  <tr>
-    <td><b>SSD512</td>
-    <td align=center><b>79.8</td>
-    <td align=center><b>83.2</td>
-    <td align=center><b>82.3</td>
+    <td align=center><b>68.5</td>
+    <td align=center><b>72.7</td>
   </tr>
 </table>
 
