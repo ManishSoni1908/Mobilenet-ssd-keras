@@ -104,8 +104,8 @@ Below are some prediction examples of the fully trained original MobileNet-SSD30
 
 | | |
 |---|---|
-| ![img01](./examples/000067.jpg) | ![img01](./examples/000067.jpg) |
-| ![img01](./examples/000542.jpg) | ![img01](./examples/004545.jpg) |
+| ![img01](./examples/000067.jpg) | ![img01](./examples/000456.jpg) |
+| ![img01](./examples/001150.jpg) | ![img01](./examples/004545.jpg) |
 
 ### Dependencies
 
