@@ -44,7 +44,6 @@ Here are the mAP evaluation results of the ported weights and below that the eva
     <td>trained on<br>IoU rule</td>
     <td align=center width="25%">07+12<br>0.5</td>
     <td align=center width="25%">07+12+COCO<br>0.5</td>
-    <td align=center width="25%">07++12+COCO<br>0.5</td>
   </tr>
   <tr>
     <td><b>SSD300</td>
