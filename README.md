@@ -116,38 +116,29 @@ Here are some prediction examples of an SSD7 (i.e. the small 7-layer version) pa
 
 ### Dependencies
 
-* Python 3.x
+* Python 2.x or 3.x
 * Numpy
 * TensorFlow 1.x
 * Keras 2.x
 * OpenCV
-* Beautiful Soup 4.x
 
-The Theano and CNTK backends are currently not supported.
 
-Python 2 compatibility: This implementation seems to work with Python 2.7, but I don't provide any support for it. It's 2018 and nobody should be using Python 2 anymore.
-
-### How to use it
+### Repositories Content
 
 This repository provides Jupyter notebook tutorials that explain training, inference and evaluation, and there are a bunch of explanations in the subsequent sections that complement the notebooks.
 
 How to use a trained model for inference:
-* [`ssd300_inference.ipynb`](ssd300_inference.ipynb)
-* [`ssd512_inference.ipynb`](ssd512_inference.ipynb)
+* [`infer_mobilenet_ssd.py`](.inference/infer_mobilenet_ssd.py)
 
 How to train a model:
-* [`ssd300_training.ipynb`](ssd300_training.ipynb)
-* [`ssd7_training.ipynb`](ssd7_training.ipynb)
+* [`train_mobilenet_ssd.py`](./training/train_mobilenet_ssd.py)
 
-How to use one of the provided trained models for transfer learning on your own dataset:
-* [Read below](#how-to-fine-tune-one-of-the-trained-models-on-your-own-dataset)
 
 How to evaluate a trained model:
-* In general: [`ssd300_evaluation.ipynb`](ssd300_evaluation.ipynb)
-* On MS COCO: [`ssd300_evaluation_COCO.ipynb`](ssd300_evaluation_COCO.ipynb)
+* In general: [`evaluation_mobilenet_ssd.py`](./evaluation/evaluate_mobilenet_ssd.py)
 
 How to use the data generator:
-* The data generator used here has its own repository with a detailed tutorial [here](https://github.com/pierluigiferrari/data_generator_object_detection_2d)
+* ['ssd_batch_generator.py'](./misc/ssd_batch_generator.py)
 
 #### Training details
 
