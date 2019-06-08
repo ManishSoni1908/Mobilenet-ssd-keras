@@ -46,7 +46,7 @@ Here are the mAP evaluation results of the ported weights and below that the eva
     <td align=center width="25%">07+12+COCO<br>0.5</td>
   </tr>
   <tr>
-    <td><b>SSD300</td>
+    <td><b>MobileNet-SSD300</td>
     <td align=center><b>68.5</td>
     <td align=center><b>72.7</td>
   </tr>
@@ -67,14 +67,14 @@ Training an SSD300 from scratch to convergence on Pascal VOC 2007 `trainval` and
     <td align=center>Trained from Scratch</td>
   </tr>
   <tr>
-    <td><b>MobileNet SSD300 "07+12"</td>
+    <td><b>MobileNet-SSD300 "07+12"</td>
     <td align=center width="26%"><b>0.681</td>
     <td align=center width="26%"><b>0.685</td>
     <td align=center width="26%"><b>0.682</td>
   </tr>
 </table>
 
-The models achieve the following average number of frames per second (FPS) on Pascal VOC on an NVIDIA GeForce GTX 1070 mobile (i.e. the laptop version) and cuDNN v6. There are two things to note here. First, note that the benchmark prediction speeds of the original Caffe implementation were achieved using a TitanX GPU and cuDNN v4. Second, the paper says they measured the prediction speed at batch size 8, which I think isn't a meaningful way of measuring the speed. The whole point of measuring the speed of a detection model is to know how many individual sequential images the model can process per second, therefore measuring the prediction speed on batches of images and then deducing the time spent on each individual image in the batch defeats the purpose. For the sake of comparability, below you find the prediction speed for the original Caffe SSD implementation and the prediction speed for this implementation under the same conditions, i.e. at batch size 8. In addition you find the prediction speed for this implementation at batch size 1, which in my opinion is the more meaningful number.
+The models achieve the following average number of frames per second (FPS) on Pascal VOC on an NVIDIA GeForce GTX 1080 Ti(i.e. the laptop version) and cuDNN v6 and on Nvidia Jetson Tx1.Batch Size is kept 1 for getting the prediction time which is meaningful.
 
 <table width>
   <tr>
@@ -83,32 +83,18 @@ The models achieve the following average number of frames per second (FPS) on Pa
   </tr>
   <tr>
     <td></td>
-    <td align=center>Original Caffe Implementation</td>
-    <td colspan=2 align=center>This Implementation</td>
+    <td align=center>Nvidia 1080 Ti</td>
+    <td colspan=2 align=center>Nvidia Jetson TX1</td>
   </tr>
   <tr>
     <td width="14%">Batch Size</td>
-    <td width="27%" align=center>8</td>
-    <td width="27%" align=center>8</td>
+    <td width="27%" align=center>1</td>
     <td width="27%" align=center>1</td>
   </tr>
   <tr>
-    <td><b>SSD300</td>
-    <td align=center><b>46</td>
-    <td align=center><b>49</td>
-    <td align=center><b>39</td>
-  </tr>
-  <tr>
-    <td><b>SSD512</td>
-    <td align=center><b>19</td>
-    <td align=center><b>25</td>
-    <td align=center><b>20</td>
-  </tr>
-  <tr>
-    <td><b>SSD7</td>
-    <td align=center><b></td>
-    <td align=center><b>216</td>
-    <td align=center><b>127</td>
+    <td><b>MobileNet-SSD300</td>
+    <td align=center><b>170</td>
+    <td align=center><b>36</td>
   </tr>
 </table>
 
