@@ -121,7 +121,7 @@ Below are some prediction examples of the fully trained original MobileNet-SSD30
 This repository provides python files that explain training, inference and evaluation.
 
 How to use a trained model for inference:
-* [`infer_mobilenet_ssd.py`](.inference/infer_mobilenet_ssd.py)
+* [`infer_mobilenet_ssd.py`](./inference/infer_mobilenet_ssd.py)
 
 How to train a model:
 * [`train_mobilenet_ssd.py`](./training/train_mobilenet_ssd.py)
