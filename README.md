@@ -52,7 +52,8 @@ Here are the mAP evaluation results of the ported weights and below that the eva
   </tr>
 </table>
 
-Training an SSD300 from scratch to convergence on Pascal VOC 2007 `trainval` and 2012 `trainval` produces the same mAP on Pascal VOC 2007 `test` as the original Caffe SSD300 "07+12" model. You can find a summary of the training [here](training_summaries/ssd300_pascal_07+12_training_summary.md).
+
+Training an SSD300 from scratch to convergence on Pascal VOC 2007 `trainval` and 2012 `trainval` produces the same mAP on Pascal VOC 2007 `test` as the original Caffe MobileNet SSD300 "07+12" model.
 
 <table width="95%">
   <tr>
@@ -66,10 +67,10 @@ Training an SSD300 from scratch to convergence on Pascal VOC 2007 `trainval` and
     <td align=center>Trained from Scratch</td>
   </tr>
   <tr>
-    <td><b>SSD300 "07+12"</td>
-    <td align=center width="26%"><b>0.772</td>
-    <td align=center width="26%"><b>0.775</td>
-    <td align=center width="26%"><b><a href="https://drive.google.com/file/d/1-MYYaZbIHNPtI2zzklgVBAjssbP06BeA/view">0.771</a></td>
+    <td><b>MobileNet SSD300 "07+12"</td>
+    <td align=center width="26%"><b>0.681</td>
+    <td align=center width="26%"><b>0.685</td>
+    <td align=center width="26%"><b>0.682</td>
   </tr>
 </table>
 
