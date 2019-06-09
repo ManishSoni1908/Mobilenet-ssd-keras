@@ -66,7 +66,7 @@ Training an SSD300 from scratch to MS-COCO and then fine tune  on Pascal VOC 200
   <tr>
     <td><b>MobileNet-SSD300 "07+12"</td>
     <td align=center width="26%"><b>72.5</td>
-    <td align=center width="26%"><b>72.7.</td>
+    <td align=center width="26%"><b>72.7</td>
     <td align=center width="26%"><b>72.2</td>
   </tr>
 </table>
