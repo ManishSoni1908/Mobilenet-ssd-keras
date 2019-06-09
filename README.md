@@ -151,7 +151,7 @@ To train the original MobileNet-SSD300 model on Pascal VOC:
 
 In order to train an MobileNet-SSD300 from scratch, download the weights of the fully convolutionalized MobileNet-V1 model trained to convergence on ImageNet classification here:
 
-[`MobileNet-v1.h5`](https://drive.google.com/open?id=1sBmajn6vOE7qJ8GnxUJt4fGPuffVUZox).
+[`MobileNet-v1.h5`](./backbone_model/mobilenet.h5).
 
 As with all other weights files below, this is a direct port of the corresponding `.caffemodel` file that is provided in the repository of the original Caffe implementation.
 
