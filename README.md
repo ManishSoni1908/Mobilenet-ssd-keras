@@ -161,8 +161,8 @@ Here are the ported weights for all the original trained models. The filenames c
 
 1. PASCAL VOC models:
 
-    * 07+12: ['MobileNet-SSD300'](./conversion/converted_model.h5)
-    * 07++12+COCO: ['MobileNet-SSD300'](./conversion/converted_model.h5)
+    * 07+12: [MobileNet-SSD300](./conversion/converted_model.h5)
+    * 07++12+COCO: [MobileNet-SSD300](./conversion/converted_model.h5)
 
 
 ### ToDo
