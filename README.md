@@ -157,7 +157,7 @@ As with all other weights files below, this is a direct port of the correspondin
 
 ### Download the original trained model weights
 
-Here are the ported weights for all the original trained models. The filenames correspond to their respective `.caffemodel` counterparts. The asterisks and footnotes refer to those in the README of the [original Caffe implementation](https://github.com/weiliu89/caffe/tree/ssd#models).
+Here are the ported weights for all the original trained models. The filenames correspond to their respective `.caffemodel` counterparts. The asterisks and footnotes refer to those in the README of the [original Caffe implementation](https://github.com/chuanqi305/MobileNet-SSD).
 
 1. PASCAL VOC models:
 
