@@ -1,0 +1,3 @@
+[submodule "MobilenetWeights"]
+	path = MobilenetWeights
+	url = https://github.com/abhinavrai44/MobilenetWeights
