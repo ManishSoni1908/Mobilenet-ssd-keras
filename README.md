@@ -173,4 +173,4 @@ The following things are on the to-do list, ranked by priority. Contributions ar
 2. Add support for the Theano and CNTK backends. Requires porting the custom layers and the loss function from TensorFlow to the abstract Keras backend.
 
 
-#### Special Mention to Pierluigi Ferrari which has developed ssd keras code, it helps alot to do build this repository.
+#### Special Mention to [pierluigiferrari](https://github.com/pierluigiferrari/ssd_keras) and [chuanqi305](https://github.com/chuanqi305/MobileNet-SSD) , which helped to build this repository.
